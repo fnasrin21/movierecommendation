@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendations</title>
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">-->
+    <link rel="stylesheet" href="static/style.css">
+
+</head>
+<body>
+    <h1 style="text-align: center;">Your Movie Recommendations</h1>
+    {% if movies %}
+        <ul>
+        {% for movie in movies %}
+            <li class="movie">
+                <img src="{{ movie.image }}" alt="{{ movie.title }}">
+                <h2>{{ movie.title }}</h2>
+                <p><a href="{{ movie.link }}" target="_blank">View on TMDb</a></p>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No recommendations found. Please try again with different preferences.</p>
+    {% endif %}
+</body>
+</html>
+
